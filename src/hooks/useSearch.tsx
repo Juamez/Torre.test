@@ -39,7 +39,20 @@ export function useSearch() {
       }
 
       const data = await response.json();
-      setResults(data);
+
+      if (Array.isArray(data)) {
+        setResults(data);
+      } else if (data && Array.isArray(data.results)) {
+        setResults(data.results);
+      } else if (data && typeof data === 'object') {
+        const resultsArray = Object.values(data).filter(
+          (item): item is TorreSearchResult =>
+            item !== null && typeof item === 'object' && 'name' in item
+        );
+        setResults(resultsArray);
+      } else {
+        setResults([]);
+      }
     } catch (error) {
       console.error('Search error:', error);
       setResults([]);
