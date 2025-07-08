@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
-  console.log('API route called: /api/torre-search-stream');
-
   try {
     const body = await request.json();
     console.log('Received body:', body);
@@ -10,18 +8,11 @@ export async function POST(request: NextRequest) {
     const { query, limit = 10, excludeContacts = true } = body;
 
     if (!query) {
-      console.log('No query provided');
       return NextResponse.json(
         { error: 'Search query is required' },
         { status: 400 }
       );
     }
-
-    console.log('Making request to Torre.ai with:', {
-      query,
-      limit,
-      excludeContacts,
-    });
 
     const apiUrl = process.env.API_URL_SEARCH;
     if (!apiUrl) {
@@ -45,8 +36,6 @@ export async function POST(request: NextRequest) {
       }),
     });
 
-    console.log('Torre.ai response status:', response.status);
-
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Torre.ai error response:', errorText);
@@ -54,11 +43,10 @@ export async function POST(request: NextRequest) {
     }
 
     const responseText = await response.text();
-    console.log('Torre.ai raw response:', responseText);
 
     try {
       const data = JSON.parse(responseText);
-      console.log('Torre.ai response data (JSON):', data);
+
       return NextResponse.json(data, {
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -67,7 +55,6 @@ export async function POST(request: NextRequest) {
         },
       });
     } catch {
-      console.log('Failed to parse as JSON, trying NDJSON...');
       const lines = responseText.trim().split('\n');
       const results: unknown[] = [];
 
@@ -82,7 +69,6 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      console.log('Torre.ai response data (NDJSON):', results);
       return NextResponse.json(results, {
         headers: {
           'Access-Control-Allow-Origin': '*',
