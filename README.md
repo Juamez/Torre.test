@@ -1,3 +1,94 @@
+# Torre Genome Searcher and data visualization
+
+A simple full-stack app built with Next.js and TypeScript to search and display profiles using the [Torre API](https://torre.ai/), featuring a custom proxy server to handle CORS restrictions.
+
+## 📌 Table of Contents
+
+- [About the Project](#about-the-project)
+- [Planning & Goals](#planning--goals)
+- [MVP Features](#mvp-features)
+- [Roadmap](#roadmap)
+- [Challenges & Solutions](#challenges--solutions)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Testing Locally](#testing-locally)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+
+## 🧠 About the Project
+
+This project was built as part of a technical assessment. The goal was to consume the Torre API and create a minimal search experience that allows users to find and view public profiles.
+
+While working on the app, I encountered several real-world technical obstacles (like CORS errors) and took the opportunity to solve them using a full-stack approach.
+
+## 🗓️ Planning & Goals
+
+The core goals I set before starting the challenge:
+
+- [x] Create a searchable interface for Torre profiles
+- [x] Design a reusable profile card component
+- [x] Handle API integration securely and efficiently
+- [x] Write modular, maintainable code with TypeScript
+- [x] Learn from and document any blockers I hit
+
+## 🚀 MVP Features
+
+- ✅ Search input with real data
+- ✅ Custom hooks for fetching user data
+- ✅ Proxy server for secure API integration
+- ✅ Typed response models with TypeScript
+
+## 📍 Roadmap
+
+Status ----- Feature
+
+✅    Proxy server to handle CORS
+
+✅    Profile search input
+
+✅    Typed API response
+
+🟡    Better loading and error states
+
+🔲    Filter by skills/location/better profile
+
+🔲    Caching or local search history
+
+🔲    Unit testing
+
+## 🧱 Project Structure
+
+```sh
+│
+├── src/
+│   ├──app
+|   |  ├────appi
+|   |  |────genome
+│   └──components
+│      └──ui
+│   └──components
+│   ├──context
+│   └──hooks
+│   ├──lib
+│   └──types
+│
+├── vercel.json
+├── README.md
+├── package.json
+```
+
+## ⚔️ Challenges & Solutions
+
+### Challenge: CORS error when calling the Torre API from the frontend
+
+ One of the main challenges I faced during this project was integrating an external API that did not support CORS.
+
+ To solve it, I implemented a proxy server using Next.js API routes. The proxy handled forwarding the request, adding the necessary CORS headers, and returning the data back to the client safely.
+
+ This took considerable time during the assessment, but it taught me how to solve a real-world problem where frontend-only solutions fall short — and how to bridge the gap using backend logic effectively.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
