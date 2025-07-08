@@ -31,10 +31,16 @@ export interface TorreConnection {
   description: string | null;
 }
 
+export type TorreSearchResponse = {
+  results: TorreSearchResult[];
+};
 export interface TorreSearchResult {
-  id: string;
+  ardaId: string;
   name: string;
   username?: string;
   type: string;
-  pictureThumbnail?: string;
+  imageUrl?: string;
+  verified?: boolean;
+  completion?: number;
+  pageRank?: number;
 }
