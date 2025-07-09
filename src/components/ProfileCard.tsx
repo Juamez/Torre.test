@@ -64,7 +64,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         : strength.name,
     level: Math.max(
       20,
-      Math.min(100, strength.hits / 100 + Math.random() * 30 + 40)
+      Math.round(Math.min(100, strength.hits / 100 + Math.random() * 30 + 40))
     ),
   }));
 
@@ -83,7 +83,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
 
   return (
     <Card
-      className="w-full max-w-md mx-auto transition-all duration-300 hover:shadow-lg border-0 shadow-sm bg-white"
+      className="w-full max-w-md mx-auto transition-all duration-300 hover:shadow-lg border-0 shadow-sm bg-gray-800"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -104,7 +104,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             </Avatar>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <h3 className="text-xl font-bold text-slate-900 truncate">
+                <h3 className="text-xl font-bold text-amber-50 truncate">
                   {name}
                 </h3>
                 {verified && (
@@ -116,13 +116,13 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
               <p className="text-sm text-wrap text-slate-400 pb-1.5 truncate">
                 {professionalHeadline}
               </p>
-              <p className="text-xs text-slate-500 truncate">{location}</p>
+              <p className="text-xs text-amber-50 truncate">{location}</p>
             </div>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                <MoreHorizontal className="h-4 w-4" />
+                <MoreHorizontal className="h-4 w-4 text-amber-50" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -148,8 +148,10 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           <div className="flex items-center space-x-3">
             <div className="flex-shrink-0">{getPercentileIcon(percentile)}</div>
             <div className="flex-1">
-              <p className="text-sm font-semibold">Top {percentile}% User</p>
-              <p className="text-xs opacity-80">
+              <p className="text-sm text-slate-900 font-semibold">
+                Top {percentile}% User
+              </p>
+              <p className="text-xs text-slate-900 opacity-80">
                 You are performing better than {100 - percentile}% of users
               </p>
             </div>
@@ -157,10 +159,8 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         </div>
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium text-slate-700">
-              Top Strengths
-            </h4>
-            <span className="text-xs text-slate-500">
+            <h4 className="text-sm font-medium text-amber-50">Top Strengths</h4>
+            <span className="text-xs text-amber-50">
               {totalStrengths} identified
             </span>
           </div>
@@ -186,21 +186,21 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         </div>
         {summaryOfBio && (
           <div className="space-y-3">
-            <h4 className="text-sm font-medium text-slate-700">About</h4>
-            <p className="text-sm text-slate-600 line-clamp-3">
+            <h4 className="text-sm font-medium text-amber-50">About</h4>
+            <p className="text-sm text-slate-300 line-clamp-3">
               {summaryOfBio.replace(/&#x27;/g, "'").replace(/&amp;/g, '&')}
             </p>
           </div>
         )}
         {links && links.length > 0 && (
           <div className="space-y-3">
-            <h4 className="text-sm font-medium text-slate-700">Links</h4>
+            <h4 className="text-sm font-medium text-slate-200">Links</h4>
             <div className="flex flex-wrap gap-2">
               {links.slice(0, 4).map((link) => (
                 <Badge
                   key={link.id}
                   variant="outline"
-                  className="text-xs hover:bg-slate-50 cursor-pointer"
+                  className="text-xs hover:bg-slate-900 text-amber-50 cursor-pointer"
                 >
                   {link.name}
                 </Badge>
@@ -215,12 +215,12 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
         )}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium text-slate-700">
+            <h4 className="text-sm font-medium text-slate-200">
               Skills Overview
             </h4>
-            <span className="text-xs text-slate-500">0-100 scale</span>
+            <span className="text-xs text-slate-200">0-100 scale</span>
           </div>
-          <div className="relative">
+          <div className="relative text-slate-200">
             <ChartContainer
               config={{
                 level: {
@@ -283,25 +283,25 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           </div>{' '}
         </div>
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-slate-700">Profile Stats</h4>
+          <h4 className="text-sm font-medium text-slate-200">Profile Stats</h4>
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
-              <div className="text-lg font-bold text-slate-900">
+              <div className="text-lg font-bold text-amber-50">
                 {profile.stats.jobs}
               </div>
-              <div className="text-xs text-slate-500">Jobs</div>
+              <div className="text-xs text-slate-200">Jobs</div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold text-slate-900">
+              <div className="text-lg font-bold text-amber-50">
                 {profile.stats.projects}
               </div>
-              <div className="text-xs text-slate-500">Projects</div>
+              <div className="text-xs text-slate-200">Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold text-slate-900">
+              <div className="text-lg font-bold text-amber-50">
                 {profile.stats.awards}
               </div>
-              <div className="text-xs text-slate-500">Awards</div>
+              <div className="text-xs text-slate-200">Awards</div>
             </div>
           </div>
         </div>{' '}

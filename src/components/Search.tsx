@@ -25,7 +25,7 @@ export default function Search() {
       <input
         type="text"
         placeholder="Search..."
-        className={`border border-gray-300 rounded-lg p-2 w-full max-w-md`}
+        className={`border border-gray-300 rounded-lg p-2 w-full max-w-md text-amber-50`}
         onChange={handleSearchChange}
       />
       <ul>
@@ -33,7 +33,7 @@ export default function Search() {
           resultArray.map((item, index) => (
             <li
               key={item.ardaId || index}
-              className="p-2 border-b border-gray-200"
+              className="p-2 border-b border-gray-200 text-amber-50"
             >
               <div className="flex justify-center items-center gap-4">
                 <button
@@ -51,7 +51,7 @@ export default function Search() {
                   />
                   <div className="flex flex-col w-full">
                     <h3 className="font-semibold">{item.name || 'Unknown'}</h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-200">
                       @{item.username || 'No username'}
                     </p>
                     <div>
