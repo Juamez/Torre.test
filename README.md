@@ -5,6 +5,7 @@ A simple full-stack app built with Next.js and TypeScript to search and display 
 ## 📌 Table of Contents
 
 - [About the Project](#about-the-project)
+- [Demo](#Demo)
 - [Planning & Goals](#planning--goals)
 - [MVP Features](#mvp-features)
 - [Roadmap](#roadmap)
@@ -20,6 +21,10 @@ A simple full-stack app built with Next.js and TypeScript to search and display 
 This project was built as part of a technical assessment. The goal was to consume the Torre API and create a minimal search experience that allows users to find and view public profiles.
 
 While working on the app, I encountered several real-world technical obstacles (like CORS errors) and took the opportunity to solve them using a full-stack approach.
+
+## Demo Video (5min aprox)
+
+https://www.loom.com/share/14e52d95484c4612ab743503e8a635db?sid=1d6534b2-6c83-4137-91be-7b358fa0bfd0
 
 ## 🗓️ Planning & Goals
 
