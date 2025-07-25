@@ -5,28 +5,43 @@ A simple full-stack app built with Next.js and TypeScript to search and display 
 ## 📌 Table of Contents
 
 - [About the Project](#about-the-project)
-- [Demo](#Demo)
+- [Technology Stack](#technology-stack)
+- [API Endpoints](#api-endpoints)
+- [Demo](#demo-video)
 - [Planning & Goals](#planning--goals)
 - [MVP Features](#mvp-features)
 - [Roadmap](#roadmap)
 - [Challenges & Solutions](#challenges--solutions)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Testing Locally](#testing-locally)
-- [Technologies Used](#technologies-used)
-- [License](#license)
 
-## 🧠 About the Project
+## About the Project
 
 This project was built as part of a technical assessment. The goal was to consume the Torre API and create a minimal search experience that allows users to find and view public profiles.
 
 While working on the app, I encountered several real-world technical obstacles (like CORS errors) and took the opportunity to solve them using a full-stack approach.
 
-## Demo Video (5min aprox)
+## Technology Stack
+
+### Frontend Core
+
+- NextJs
+- TypeScript
+- TailwindCSS
+- Shadcn UI
+
+## API Endpoints
+
+| Method | Endpoint                | Description                |
+| ------ | ----------------------- | -------------------------- |
+| `GET`  | `/genome/[username]`          | Retrieve Genome Data JSON         |
+| `POST` | `/torre-seatch-stream`           | Search from API user info  |
+
+## Demo Video
 
 <https://www.loom.com/share/14e52d95484c4612ab743503e8a635db?sid=1d6534b2-6c83-4137-91be-7b358fa0bfd0>
 
-## 🗓️ Planning & Goals
+## Planning & Goals
 
 The core goals I set before starting the challenge:
 
@@ -36,14 +51,14 @@ The core goals I set before starting the challenge:
 - [x] Write modular, maintainable code with TypeScript
 - [x] Learn from and document any blockers I hit
 
-## 🚀 MVP Features
+## MVP Features
 
 - ✅ Search input with real data
 - ✅ Custom hooks for fetching user data
 - ✅ Proxy server for secure API integration
 - ✅ Typed response models with TypeScript
 
-## 📍 Roadmap
+## Roadmap
 
 Status ----- Feature
 
@@ -61,14 +76,14 @@ Status ----- Feature
 
 🔲    Unit testing
 
-## 🧱 Project Structure
+## Project Structure
 
 ```sh
 │
 ├── src/
 │   ├──app
-|   |  ├────appi
-|   |  |────genome
+│   │  ├────appi
+│   │  │────genome
 │   └──components
 │      └──ui
 │   └──components
@@ -82,7 +97,7 @@ Status ----- Feature
 ├── package.json
 ```
 
-## ⚔️ Challenges & Solutions
+## Challenges & Solutions
 
 ### Challenge: CORS error when calling the Torre API from the frontend
 
