@@ -1,17 +1,23 @@
 'use client';
 
+import { useDebounce } from '@/hooks/useDebounce';
 import { useSearch } from '@/hooks/useSearch';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Search() {
-  const { setSearchTerm, results, handleSearch } = useSearch();
+  const { setSearchTerm, results, handleSearch, searchTerm } = useSearch();
   const router = useRouter();
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
+  useEffect(() => {
+    handleSearch(debouncedSearchTerm);
+  }, [debouncedSearchTerm, handleSearch]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
     setSearchTerm(term);
-    handleSearch(term);
   };
 
   const resultArray = Array.isArray(results) ? results : [];
@@ -73,7 +79,7 @@ export default function Search() {
             </li>
           ))
         ) : (
-          <li className="p-2 text-gray-500">No results found</li>
+          <li className="p-2 text-gray-50">No results found</li>
         )}
       </ul>
     </section>

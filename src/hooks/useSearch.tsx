@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { TorreSearchResult } from '@/types/connectivity';
 
 interface Payload {
@@ -11,7 +11,7 @@ export function useSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<TorreSearchResult[]>([]);
 
-  const handleSearch = async (term: string) => {
+  const handleSearch = useCallback(async (term: string) => {
     if (!term) {
       setResults([]);
       return;
@@ -57,7 +57,7 @@ export function useSearch() {
       console.error('Search error:', error);
       setResults([]);
     }
-  };
+  }, []);
 
   return { searchTerm, setSearchTerm, results, handleSearch };
 }

@@ -24,7 +24,7 @@ While working on the app, I encountered several real-world technical obstacles (
 
 ## Demo Video (5min aprox)
 
-https://www.loom.com/share/14e52d95484c4612ab743503e8a635db?sid=1d6534b2-6c83-4137-91be-7b358fa0bfd0
+<https://www.loom.com/share/14e52d95484c4612ab743503e8a635db?sid=1d6534b2-6c83-4137-91be-7b358fa0bfd0>
 
 ## 🗓️ Planning & Goals
 
