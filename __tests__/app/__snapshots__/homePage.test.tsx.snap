@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home Page Performance maintains stable component structure 1`] = `
+<div>
+  <div
+    class="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+  >
+    <main
+      class="flex flex-col row-start-2 items-center sm:items-start"
+    >
+      <h1
+        class="text-3xl font-bold text-slate-950 dark:text-slate-50"
+      >
+        Torre.test Profile Data
+      </h1>
+      <div
+        data-testid="search"
+      >
+        <input
+          data-testid="search-input"
+          placeholder="Search..."
+          type="text"
+        />
+        <div
+          data-testid="search-results"
+        >
+          Mocked Search Component
+        </div>
+      </div>
+    </main>
+    <footer
+      class="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"
+    />
+  </div>
+</div>
+`;
